@@ -26,7 +26,7 @@ public abstract class Cargo implements Percel{
         return this.minExp;
     }
     public int getMinSkill(){
-        return this.minExp;
+        return this.minSkill;
     }
     
     public int getCargoID() {
@@ -41,12 +41,5 @@ public abstract class Cargo implements Percel{
         return maxPercel;
     }
     
-    public void setCargoID(int cargoID) {
-        this.cargoID = cargoID;
-    }
-    
-    public void setMaxPercel(int maxPercel) {
-        this.maxPercel = maxPercel;
-    }
-    public abstract String mostrarRequesitos();
+    public abstract String mostrarRequisitos();
 }

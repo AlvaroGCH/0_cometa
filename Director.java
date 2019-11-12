@@ -1,5 +1,9 @@
 public class Director extends Cargo {
-	public Director(int cargoID) {
-		super(cargoID, /*String info,*/ 0);
+	public Director() {
+		super(5, /*String info,*/ 0, -1, 20, -1);
+	}
+	
+	public String mostrarRequisitos() {
+		return "Minimo de experiencia:"+getMinExp()+"\nMaximo de Percel:"+getMaxPercel();
 	}
 }
