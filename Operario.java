@@ -1,5 +1,8 @@
 public class Operario extends Cargo {
-	public Operario(int cargoID) {
-		super(cargoID, /*String info,*/ 14);
-	}
+    public Operario() {
+        super(1, /*String info,*/ 14 , 20,-1,-1);
+    }
+    public String mostrarRequesitos(){
+        return "Edad minima: " + getMinEdad();
+    }
 }
