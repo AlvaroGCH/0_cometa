@@ -1,5 +1,5 @@
-
 public class  Miembro {
+	
 	private String nombre;
 	private String apellidos;
 	private Cargo cargo;
@@ -9,6 +9,7 @@ public class  Miembro {
 	private Departamento departamento;
 	
 	public Miembro(String nombre, String apellidos, Cargo cargo, int experiencia, int nacimiento, double habilidad, Departamento departamento){
+		
 		this.nombre = String.valueOf(nombre);
 		this.apellidos = String.valueOf(apellidos);
 		this.cargo = cargo;
@@ -16,21 +17,26 @@ public class  Miembro {
 		this.nacimiento = nacimiento;
 		this.habilidad = habilidad;
 		this.departamento = departamento;
+		
 	}
 	
-	public void setNombre(String nombre){{
+	public void setNombre(String nombre){
 		this.nombre = String.valueOf(nombre);
 	}
 	
-	public void setApellidos(String apellidos){{
+	public void setApellidos(String apellidos){
 		this.apellidos = String.valueOf(apellidos);
 	}
 	
-	/*public void setCargo(String cargo){{ 		
-		
-	}*/
+	public void setCargo(Cargo cargo){	
+		this.cargo = cargo;
+	}
 	
-	public void setExperiencia(int experiencia){{ 		
+	public void setDepartamento(Departamento departamento){	
+		this.departamento = departamento;
+	}
+	
+	public void setExperiencia(int experiencia){ 		
 		this.experiencia = experiencia;
 	}
 	
