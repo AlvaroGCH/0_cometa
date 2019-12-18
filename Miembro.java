@@ -14,13 +14,12 @@ public class  Miembro {
         
         this.nombre = String.valueOf(nombre);
         this.apellidos = String.valueOf(apellidos);
-        setCargo(cargo); // TODO: comprovaciones se union
         this.experiencia = experiencia;
         this.nacimiento = nacimiento;
         this.habilidad = habilidad;
-        this.departamento = departamento;
         this.percel = percel;
-        
+        setCargo(cargo); // TODO: comprovaciones se union
+        this.setDepartamento(departamento);
     }
     
     public void setNombre(String nombre){
@@ -36,7 +35,12 @@ public class  Miembro {
     }
     
     public void setDepartamento(Departamento departamento){ 
-        this.departamento = departamento;
+        //aniade al departamento y coloca la info
+        if(departamento.aniadirMiembro(this)){
+            //funciona
+        }else{
+            System.out.println("Miembro no se puede aniadir");//si da error
+        }
     }
     
     public void setExperiencia(int experiencia){        
