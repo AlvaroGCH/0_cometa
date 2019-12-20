@@ -31,9 +31,16 @@ public class  Miembro {
         this.apellidos = String.valueOf(apellidos);
     }
     
-    public void setCargo(Cargo cargo){  
-        this.cargo = cargo; // TODO
-    }
+   public void setCargo(Cargo cargo){	
+		int edad = 2061 - nacimiento;
+		int min_exp = cargo.getMinExp();
+		int min_edad = cargo.getMinEdad();
+		int min_habilidad = cargo.getMinSkill();
+		if(experiencia > min_exp && edad > min_edad && habilidad > min_habilidad) 
+			this.cargo = cargo;
+		else
+			System.out.println("Excepcion");
+	}
     
     public void setDepartamento(Departamento departamento){ 
         this.departamento = departamento;
