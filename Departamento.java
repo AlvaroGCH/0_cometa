@@ -41,4 +41,7 @@ public class Departamento {
     public Miembro getMiembro(int numMiembro){
         return this.miembros[numMiembro];
     }
+    public int getnumMiembros(){
+        return this.numMiembros;
+    }
 }

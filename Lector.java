@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class Lector {
-    public static Miembro leer(String fileName, Departamentos listaDeDepartamentos) {
+    public static void leer(String fileName, Departamentos listaDeDepartamentos) {
 
         // This will reference one line at a time
         char letra = (char) -1;
@@ -63,8 +63,11 @@ public class Lector {
                     }
                     if( elemento == 8){
                         percel = Traductor.percel(buffer);
+                        new Miembro(nombre,apellido,cargo,xp,naci,habi,dep,percel); // crea el miembro q se guarda en el departamento
+                        elemento = 0; // para reiniciarlo a 1
                         buffer = "";
                     }
+                    
                     elemento++;
                 }
                 
@@ -73,8 +76,8 @@ public class Lector {
             // Always close files.
             bufferedReader.close();
             
-            Miembro ret = new Miembro(nombre,apellido,cargo,xp,naci,habi,dep,percel);
-            return ret;
+
+
         }
         catch(FileNotFoundException ex) {
             ex.printStackTrace();             
@@ -82,6 +85,5 @@ public class Lector {
         catch(IOException ex) {
             ex.printStackTrace();
         }
-        return null;
     }
 }
