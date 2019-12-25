@@ -4,7 +4,6 @@ Los departamento se crean todos en un objeto Departamentos.
 
 TODO:
 1. Interfaz grafica.
-2. Implemantar excepciones.
 
 Funcionamiento:
 Existe un departamento test.
