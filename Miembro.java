@@ -30,6 +30,7 @@ public class  Miembro {
         this.apellidos = String.valueOf(apellidos);
     }
     
+JuanPMC-muy-avanzado(falta-Setcargo())
     public void setCargo(Cargo cargo) throws NoRequisitosEx {  // el percel se mira en departamento
         int edad = 2061 - nacimiento;
 	int min_exp = cargo.getMinExp();
@@ -40,6 +41,7 @@ public class  Miembro {
 	else
 		throw new NoRequisitosEx();
     }
+
     
     public void setDepartamento(Departamento departamento) throws TooManyPercelEx, TooManyCargoEx{ 
         //aniade al departamento y coloca la info
