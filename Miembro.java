@@ -10,17 +10,16 @@ public class  Miembro {
     private boolean percel;
     
     
-    public Miembro(String nombre, String apellidos, Cargo cargo, int experiencia, int nacimiento, double habilidad, Departamento departamento, boolean percel){
+    public Miembro(String nombre, String apellidos, Cargo cargo, int experiencia, int nacimiento, double habilidad, Departamento departamento, boolean percel) throws TooManyPercelEx, TooManyCargoEx, NoRequisitosEx{
         
         this.nombre = String.valueOf(nombre);
         this.apellidos = String.valueOf(apellidos);
-        setCargo(cargo); // TODO: comprovaciones se union
         this.experiencia = experiencia;
         this.nacimiento = nacimiento;
         this.habilidad = habilidad;
-        this.departamento = departamento;
         this.percel = percel;
-        
+        setCargo(cargo); // TODO: comprovaciones se union
+        this.setDepartamento(departamento);
     }
     
     public void setNombre(String nombre){
@@ -31,19 +30,26 @@ public class  Miembro {
         this.apellidos = String.valueOf(apellidos);
     }
     
-   public void setCargo(Cargo cargo){	
-		int edad = 2061 - nacimiento;
-		int min_exp = cargo.getMinExp();
-		int min_edad = cargo.getMinEdad();
-		int min_habilidad = cargo.getMinSkill();
-		if(experiencia > min_exp && edad > min_edad && habilidad > min_habilidad) 
-			this.cargo = cargo;
-		else
-			System.out.println("Excepcion");
-	}
+JuanPMC-muy-avanzado(falta-Setcargo())
+    public void setCargo(Cargo cargo) throws NoRequisitosEx {  // el percel se mira en departamento
+        int edad = 2061 - nacimiento;
+	int min_exp = cargo.getMinExp();
+	int min_edad = cargo.getMinEdad();
+	int min_habilidad = cargo.getMinSkill();
+	if(experiencia > min_exp && edad > min_edad && habilidad > min_habilidad) 
+		this.cargo = cargo;
+	else
+		throw new NoRequisitosEx();
+    }
+
     
-    public void setDepartamento(Departamento departamento){ 
-        this.departamento = departamento;
+    public void setDepartamento(Departamento departamento) throws TooManyPercelEx, TooManyCargoEx{ 
+        //aniade al departamento y coloca la info
+        if(departamento.aniadirMiembro(this)){
+            //funciona
+        }else{
+            System.out.println("Miembro no se puede aniadir");//si da error
+        }
     }
     
     public void setExperiencia(int experiencia){        

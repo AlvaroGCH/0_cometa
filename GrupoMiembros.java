@@ -19,13 +19,13 @@ public class GrupoMiembros
         return (this.funcion);
     }
     
-    public boolean aniadirMiembro(Miembro aniadido){ // Precondicion: El cargo debe ser el correcto de este contenedor
+    public boolean aniadirMiembro(Miembro aniadido) throws TooManyPercelEx { // Precondicion: El cargo debe ser el correcto de este contenedor
         if(this.cantidadMiembros < this.maxMiembros){
             if(aniadido.getPercel()){
                 if(aniadido.getCargo().getMaxPercel() < this.nPercel ){
                     this.nPercel++;
                 }else{
-                    return false;
+                    throw new TooManyPercelEx();
                 }
             }
             this.cantidadMiembros++;
