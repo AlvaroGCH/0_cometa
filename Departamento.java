@@ -25,7 +25,7 @@ public class Departamento {
     }
     
     
-    public boolean aniadirMiembro(Miembro sujetoNuevo){
+    public boolean aniadirMiembro(Miembro sujetoNuevo) throws TooManyPercelEx, TooManyCargoEx { // excepcion de percel y excepcion de cargo
         for(int i = 0; i < NUMERO_DE_CARGOS; i++){
             if(sujetoNuevo.getCargo().getCargoId() == grupos[i].getCargoId()){
                 if(grupos[i].aniadirMiembro(sujetoNuevo)){
@@ -35,7 +35,7 @@ public class Departamento {
                 }
             }
         }
-        return false;
+        throw new TooManyCargoEx(sujetoNuevo.getCargo().getCargoId());
     }
     
     public Miembro getMiembro(int numMiembro){

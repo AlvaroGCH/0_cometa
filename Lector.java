@@ -1,8 +1,11 @@
 import java.io.*;
 
-public class Lector {
-    public static void leer(String fileName, Departamentos listaDeDepartamentos) {
-
+public class Lector { // excepcion de mas de 100 miembros 
+    public static void leer(String fileName, Departamentos listaDeDepartamentos) throws TooManyPeopleEx, TooManyPercelEx, TooManyCargoEx, NoRequisitosEx{
+        
+        // To keep count of the member in the mission
+        int numeroDeMiembros = 0;
+        
         // This will reference one line at a time
         char letra = (char) -1;
         
@@ -66,6 +69,10 @@ public class Lector {
                         new Miembro(nombre,apellido,cargo,xp,naci,habi,dep,percel); // crea el miembro q se guarda en el departamento
                         elemento = 0; // para reiniciarlo a 1
                         buffer = "";
+                        numeroDeMiembros++;
+                        if (numeroDeMiembros > 100){
+                            throw new TooManyPeopleEx();
+                        }
                     }
                     
                     elemento++;
