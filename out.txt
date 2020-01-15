@@ -1,6 +1,5 @@
-test
-Operario: ( Edad minima: 20 ) 
-Juan
-Pépe
-Director: ( Minimo de experiencia:20 Maximo de Percel:0 ) 
-Saul
+Saul Lintz
+Cargo: Director
+Edad: 50
+Habilidad: 60.0
+Percel: No

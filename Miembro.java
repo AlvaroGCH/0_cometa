@@ -1,3 +1,4 @@
+// Esta clase contiene toda la informacion de un miembro
 public class  Miembro {
     
     private String nombre;
@@ -18,7 +19,7 @@ public class  Miembro {
         this.nacimiento = nacimiento;
         this.habilidad = habilidad;
         this.percel = percel;
-        setCargo(cargo); // TODO: comprovaciones se union
+        setCargo(cargo);
         this.setDepartamento(departamento);
     }
     
@@ -32,13 +33,14 @@ public class  Miembro {
     
     public void setCargo(Cargo cargo) throws NoRequisitosEx {  // el percel se mira en departamento
         int edad = 2061 - nacimiento;
-	int min_exp = cargo.getMinExp();
-	int min_edad = cargo.getMinEdad();
-	int min_habilidad = cargo.getMinSkill();
-	if(experiencia > min_exp && edad > min_edad && habilidad > min_habilidad) 
-		this.cargo = cargo;
-	else
-		throw new NoRequisitosEx();
+        int min_exp = cargo.getMinExp();
+        int min_edad = cargo.getMinEdad();
+        int min_habilidad = cargo.getMinSkill();
+    // comprueba si cumple los requisitos
+    if(experiencia > min_exp && edad > min_edad && habilidad > min_habilidad) 
+        this.cargo = cargo;
+    else
+        throw new NoRequisitosEx();
     }
     
     public void setDepartamento(Departamento departamento) throws TooManyPercelEx, TooManyCargoEx{ 
@@ -46,7 +48,7 @@ public class  Miembro {
         if(departamento.aniadirMiembro(this)){
             //funciona
         }else{
-            System.out.println("Miembro no se puede aniadir");//si da error
+            System.out.println("Miembro no se puede aniadir");//si da error ( ahora lanza una excepcion )
         }
     }
     

@@ -1,20 +1,20 @@
 import java.io.IOException;
 import javax.swing.JOptionPane;
+
+//Esta clase se dedica a intereaccionar con el usuario
+
 public class Mostrador
 {
-    public void mostrarRequisitos(Cargo cargo){
-        System.out.println(cargo.mostrarRequisitos());
+    public void mensajeNormal(String mensaje) { // un mesaje cualquiera
+    	JOptionPane.showMessageDialog(null, mensaje, "Noramal", JOptionPane.WARNING_MESSAGE);
     }
-    public void consoleText(String output){
-        System.out.println(output);
-    }
-    public void mensajeError(String mensaje) {
+    public void mensajeError(String mensaje) { // un mensaje de error
     	JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.WARNING_MESSAGE);
     }
-    public void mostrarInterfaz(Departamentos listaDepartamentos) {
+    public void mostrarInterfaz(Departamentos listaDepartamentos) { // la interfaz entera
 		Escritor escritor = new Escritor();
 		int respuesta_salida = 1, respuesta_salida2 = 2;
-		String[] lista_departamentos = {"test","direcci髇", "log韘tica", "control de robots", "m閐ico", "investigaci髇 biol骻ica", "construcci髇 y mantenimiento", "sistemas inform醫icos", "investigaci髇 astron髆ica", "cometolog韆", "navegaci髇"};	
+		String[] lista_departamentos = {"test","direcci贸n", "log铆stica", "control de robots", "m茅dico", "investigaci贸n biol贸gica", "construcci贸n y mantenimiento", "sistemas inform谩ticos", "investigaci贸n astron贸mica", "cometolog铆a", "navegaci贸n"};	
 		
 		do {		
 			String respuesta_departamento = (String) JOptionPane.showInputDialog(null, "Seleccione un departamento", "Departamento", JOptionPane.DEFAULT_OPTION, null, lista_departamentos, lista_departamentos[0]);	
@@ -24,12 +24,12 @@ public class Mostrador
 			
 			if(respuesta_departamento != null) {	
 				if(departamento.getnumMiembros()>0) {
-					int respuesta_imprimir_departamento = JOptionPane.showConfirmDialog(null, "緿esea imrpimir los miembros de este departamento?", "Importante", JOptionPane.YES_NO_OPTION);	
+					int respuesta_imprimir_departamento = JOptionPane.showConfirmDialog(null, "驴Desea imrpimir los miembros de este departamento?", "Importante", JOptionPane.YES_NO_OPTION);	
 	
 					if(respuesta_imprimir_departamento==0) {				
 						try {
 							escritor.writeDep(respuesta_departamento, listaDepartamentos);					// Funcion imprimir departamento--->Imprime nombre del departamento, listado de sus miembros agrupados por su cargo y los requisitos dichos cargos ocupados;
-							JOptionPane.showMessageDialog(null, "Operaci髇 realizada correctamente");
+							JOptionPane.showMessageDialog(null, "Operaci贸n realizada correctamente");
 						} catch (IOException e) {
 							e.printStackTrace();
 						}								
@@ -46,20 +46,20 @@ public class Mostrador
 							String respuesta_miembro = (String) JOptionPane.showInputDialog(null, "Seleccione un miembro", "Miembros", JOptionPane.DEFAULT_OPTION, null, lista_miembros, lista_miembros[0]);
 							
 							if(respuesta_miembro != null) {
-								int respuesta_imprimir_miembro = JOptionPane.showConfirmDialog(null, "緿esea imrpimir los datos de este miembro?", "Importante", JOptionPane.YES_NO_OPTION);		
+								int respuesta_imprimir_miembro = JOptionPane.showConfirmDialog(null, "驴Desea imrpimir los datos de este miembro?", "Importante", JOptionPane.YES_NO_OPTION);		
 								
 								if(respuesta_imprimir_miembro == 0) {
 									for(int i = 0; i<= num_miembros-1;i++)
 										if(respuesta_miembro == lista_miembros[i]) {
 											try {
 												escritor.writeMiem(miembros[i]);				// Funcion imprimir datos de un miembro;
-												JOptionPane.showMessageDialog(null, "Operaci髇 realizada correctamente");
+												JOptionPane.showMessageDialog(null, "Operaci贸n realizada correctamente");
 											} catch (IOException e) {
 												e.printStackTrace();
 											}
 										}
 								}
-								respuesta_salida2 = JOptionPane.showConfirmDialog(null, "緿esea seleccionar otro miembro de este departamento?", "Importante", JOptionPane.YES_NO_OPTION);
+								respuesta_salida2 = JOptionPane.showConfirmDialog(null, "驴Desea seleccionar otro miembro de este departamento?", "Importante", JOptionPane.YES_NO_OPTION);
 							}
 						}else {
 							String respuesta_miembro = (String) JOptionPane.showInputDialog(null, "Seleccione un miembro", "Miembros", JOptionPane.DEFAULT_OPTION, null, lista_vacia, lista_vacia[0]);
@@ -67,13 +67,13 @@ public class Mostrador
 					}while(respuesta_salida2==0);	
 				}
 				else {
-					int confirmacion = JOptionPane.showConfirmDialog(null, "縀ste departamento esta vac韔, desea seleccionar otro departamento?", "Importante", JOptionPane.YES_NO_OPTION);
+					int confirmacion = JOptionPane.showConfirmDialog(null, "驴Este departamento esta vac铆o, desea seleccionar otro departamento?", "Importante", JOptionPane.YES_NO_OPTION);
 					
 					if(confirmacion == 0)
 						continue;
 				}
 			}
-			respuesta_salida = JOptionPane.showConfirmDialog(null, "緿esea salir del programa?", "Importante", JOptionPane.YES_NO_OPTION);
+			respuesta_salida = JOptionPane.showConfirmDialog(null, "驴Desea salir del programa?", "Importante", JOptionPane.YES_NO_OPTION);
 		}while(respuesta_salida==1);
 	}
 }

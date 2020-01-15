@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+// Esta clase contiene la informacion de un cargo 
 public abstract class Cargo implements Percel{
     private int minEdad;
     private int minExp;
@@ -9,7 +17,7 @@ public abstract class Cargo implements Percel{
     
     
     public Cargo(int id, int maxPercel, int minEdad, int minExp, int minSkill){
-        
+        // Los requisitos  caracteristicas
         this.cargoID = id;
         this.info = null;
         this.maxPercel = maxPercel;
@@ -45,7 +53,7 @@ public abstract class Cargo implements Percel{
         return maxPercel;
     }
     
-    public abstract String mostrarRequisitos();
+    public abstract String mostrarRequisitos(); // obliga a mostrar requisitos
     
-    public abstract String getNombre();
+    public abstract String getNombre(); // obliga a mostrar nombre
 }

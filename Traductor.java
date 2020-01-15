@@ -1,7 +1,10 @@
 import java.util.*;
 
+// Esta clase se utiliza para traducir varios elementos
+  
 public class Traductor
 {
+    // traducir de String a cargo
     public static Cargo cargo(String cargoS){
         Map<String, Cargo> cargos = new HashMap<String, Cargo>();
         
@@ -16,11 +19,10 @@ public class Traductor
         tempCargo = new Operario();
         cargos.put("operario", tempCargo);
         
-        //System.out.println(cargos.get("director").getMinExp());
-        
         return cargos.get(cargoS); // responde null si no existe el cargo
     }
     
+    // Traduce de Si/No a true/false
     public static boolean percel(String percelS){ // Precondicion: el string es "si" o "no"
         if(percelS.equals("no")){
             return false;

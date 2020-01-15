@@ -1,4 +1,7 @@
 import java.io.*;
+
+// Esta clase maneja toda la escritura a ficheros
+
 public class Escritor {
 
    public static void writeDep(String dep, Departamentos listaDeDepartamentos )throws IOException {
@@ -10,9 +13,9 @@ public class Escritor {
        int max = 0;
        
        writer.write(""); // limpiar el fichero
-       writer.append(dep + "\n"); // name of deparment
+       writer.append(dep + "\n"); // nombre del departamento
        
-       // the diferent cargos
+       // Imprime los distintos cargos
        for( int j = 1; j <= NUMERO_CARGOS; j++){
            max = departamento.getGrupoMiembros(j).getCantidadMiembros();
            if (max > 0){
@@ -26,10 +29,18 @@ public class Escritor {
        writer.close(); // cerrar el filewriter
     }
     public static void writeMiem(Miembro miembro)throws IOException{
-        BufferedWriter writer = new BufferedWriter(new FileWriter("out.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("out_miembro.txt"));
         writer.write(""); // limpiar el fichero
-        writer.append(miembro.getNombre() + "\n");
+        // imprime los dats del miembro
+        writer.append(miembro.getNombre() + " " + miembro.getApellidos() + "\n");
         writer.append("Cargo: " + miembro.getCargo().getNombre() +  "\n");
-        writer.append(miembro.getEdad() + "\n");
+        writer.append("Edad: " + miembro.getEdad() + "\n");
+        writer.append("Habilidad: " + miembro.getHabilidad() + "\n");
+        if(miembro.getPercel()){    
+            writer.append("Percel: Si");
+        }else{
+            writer.append("Percel: No");
+        }
+        writer.close(); // cerrar el filewriter
     }
 }

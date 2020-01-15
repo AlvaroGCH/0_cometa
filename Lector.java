@@ -1,15 +1,16 @@
 import java.io.*;
-
+// Esta clase se utiliza para leer del fichero y aniadir todos lo miembros
 public class Lector { // excepcion de mas de 100 miembros 
-    public static void leer(String fileName, Departamentos listaDeDepartamentos) throws TooManyPeopleEx, TooManyPercelEx, TooManyCargoEx, NoRequisitosEx{
+    public static int leer(String fileName, Departamentos listaDeDepartamentos) throws TooManyPeopleEx, TooManyPercelEx, TooManyCargoEx, NoRequisitosEx, FileNotFoundException{
         
-        // To keep count of the member in the mission
+        // Cuenta los miembros de la mision
         int numeroDeMiembros = 0;
         
-        // This will reference one line at a time
+        // para referenciar letras de una en una
         char letra = (char) -1;
         
-        String buffer = ""; 
+        // variables para guardar los atributos que tendra el miembro
+        String buffer = ""; // guardar los caracteres para un elemento concreto
         
         String nombre = "";
         String apellido = "";
@@ -20,12 +21,11 @@ public class Lector { // excepcion de mas de 100 miembros
         Departamento dep = null;
         boolean percel = false;
         
+        // para indicar el elemneto que se esta leyendo
         int elemento = 1;
         
         try {
-            // Lee ficheros de texto
-            //FileReader fileReader = new FileReader(fileName);
-            
+            // Lee ficheros de texto con encoding en utf8
             InputStreamReader fileReader = new InputStreamReader( new FileInputStream(fileName), "UTF8");
             
             // Envuelto en un buffer reader
@@ -83,18 +83,11 @@ public class Lector { // excepcion de mas de 100 miembros
                 }
                 
             }   
-
-            // Always close files.
+            // Siempre cerrear los ficheros
             bufferedReader.close();
-            
-
-
-        }
-        catch(FileNotFoundException ex) {
-            ex.printStackTrace();             
-        }
-        catch(IOException ex) {
+        }catch(IOException ex) {
             ex.printStackTrace();
         }
+        return numeroDeMiembros;
     }
 }

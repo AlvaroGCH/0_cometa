@@ -11,25 +11,19 @@ public class Main
         
        try{ // main block to test wrong file input
             
-            Lector.leer("temp.txt",listaDeDepartamentos);// coge los miembros
-            Escritor escritor = new Escritor();
-            
-            System.out.println(listaDeDepartamentos.getDepartamento("test").getMiembro(2).getNombre());
-            
-            escritor.writeDep("test",listaDeDepartamentos);
-            //Interfaz inter = new Interfaz(listaDeDepartamentos);
-            
+            mainMostrador.mensajeNormal("Se an leido " + String.valueOf(Lector.leer("temp.txt",listaDeDepartamentos)) + " miembros!");// coge los miembros y coge sus excepciones
+            mainMostrador.mostrarInterfaz(listaDeDepartamentos); // Muestra la interfaz para navegar la lista de departamentos
+
         }catch(TooManyPeopleEx e){
-            System.out.println(e.toString());
+            mainMostrador.mensajeError("Mucha gente un departamento");
         }catch(TooManyPercelEx e){
-            System.out.println(e.toString());
+            mainMostrador.mensajeError("Muchos percel un cargo");
         }catch(TooManyCargoEx e){
-            System.out.println(e.toString());
+            mainMostrador.mensajeError("Mucha gente un el cargo");
         }catch(NoRequisitosEx e){
-            System.out.println(e.toString());
-        }catch(IOException e){
-            System.out.println(e.toString());
+            mainMostrador.mensajeError("Algun miembro no cumple los requisitos para su puesto");
+        }catch(FileNotFoundException ex) {
+            mainMostrador.mensajeError("No se encuentra fichero de configuracion");           
         }
-        
     }
 }
