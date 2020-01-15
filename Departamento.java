@@ -44,4 +44,7 @@ public class Departamento {
     public int getnumMiembros(){
         return this.numMiembros;
     }
+    public GrupoMiembros getGrupoMiembros(int cargoId){ // precondicion GrupoMiembros existe
+        return this.grupos[cargoId - 1];
+    }
 }

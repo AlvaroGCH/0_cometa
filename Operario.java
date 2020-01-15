@@ -5,4 +5,7 @@ public class Operario extends Cargo {
     public String mostrarRequisitos(){
         return "Edad minima: " + getMinEdad();
     }
+    public String getNombre(){
+        return "Operario";
+    }
 }

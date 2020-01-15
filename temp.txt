@@ -1,2 +1,3 @@
 Saul;Lintz;director;30;2011;60;test;no;
 Juan;Pedr;operario;30;2011;60;test;no;
+Pépe;losto;operario;30;2011;60;test;no;

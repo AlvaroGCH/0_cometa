@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.*;
 
 public class Main
 {
@@ -8,10 +9,15 @@ public class Main
         
         Mostrador mainMostrador = new Mostrador(); // mostrador
         
-        try{ // main block to test wrong file input
+       try{ // main block to test wrong file input
             
             Lector.leer("temp.txt",listaDeDepartamentos);// coge los miembros
-            mainMostrador.mostrarRequisitos(listaDeDepartamentos.getDepartamento("test").getMiembro(1).getCargo());
+            Escritor escritor = new Escritor();
+            
+            System.out.println(listaDeDepartamentos.getDepartamento("test").getMiembro(2).getNombre());
+            
+            escritor.writeDep("test",listaDeDepartamentos);
+            //Interfaz inter = new Interfaz(listaDeDepartamentos);
             
         }catch(TooManyPeopleEx e){
             System.out.println(e.toString());
@@ -20,6 +26,8 @@ public class Main
         }catch(TooManyCargoEx e){
             System.out.println(e.toString());
         }catch(NoRequisitosEx e){
+            System.out.println(e.toString());
+        }catch(IOException e){
             System.out.println(e.toString());
         }
         

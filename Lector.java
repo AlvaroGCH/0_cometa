@@ -24,8 +24,10 @@ public class Lector { // excepcion de mas de 100 miembros
         
         try {
             // Lee ficheros de texto
-            FileReader fileReader = new FileReader(fileName);
-
+            //FileReader fileReader = new FileReader(fileName);
+            
+            InputStreamReader fileReader = new InputStreamReader( new FileInputStream(fileName), "UTF8");
+            
             // Envuelto en un buffer reader
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             
@@ -33,13 +35,13 @@ public class Lector { // excepcion de mas de 100 miembros
             while((letra =  (char) bufferedReader.read()) !=  (char) -1 ) { 
                 
                 //Para los distintos elementos del miembro
-                if(letra != ';' && elemento == 1){
+                if(letra != ';' && letra != '\n' && elemento == 1){
                     nombre += letra;
                 }
-                else if(letra != ';' && elemento == 2){
+                else if(letra != ';' && letra != '\n' && elemento == 2){
                     apellido += letra;
                 }
-                else if(letra != ';'){ // para el resto de elementos que son string
+                else if(letra != ';' && letra != '\n' ){ // para el resto de elementos que son string
                     buffer += letra;
                 }
                 if(letra == ';'){ // delimitador de atributos
@@ -67,6 +69,8 @@ public class Lector { // excepcion de mas de 100 miembros
                     if( elemento == 8){
                         percel = Traductor.percel(buffer);
                         new Miembro(nombre,apellido,cargo,xp,naci,habi,dep,percel); // crea el miembro q se guarda en el departamento
+                        nombre = "";
+                        apellido = "";
                         elemento = 0; // para reiniciarlo a 1
                         buffer = "";
                         numeroDeMiembros++;

@@ -46,4 +46,6 @@ public abstract class Cargo implements Percel{
     }
     
     public abstract String mostrarRequisitos();
+    
+    public abstract String getNombre();
 }

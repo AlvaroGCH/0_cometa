@@ -4,13 +4,13 @@ public class Interfaz {
 	public Interfaz(Departamentos listaDepartamentos) {
 		
 		int respuesta_salida = 2, respuesta_salida2 = 2;
-		String[] lista_departamentos = {"test","dirección", "logística", "control de robots", "médico", "investigación biológica", "construcción y mantenimiento", "sistemas informáticos", "investigación astronómica", "cometología", "navegación"};
+		String[] lista_departamentos = {"test","direcciÃ³n", "logÃ­stica", "control de robots", "mÃ©dico", "investigaciÃ³n biolÃ³gica", "construcciÃ³n y mantenimiento", "sistemas informÃ¡ticos", "investigaciÃ³n astronÃ³mica", "cometologÃ­a", "navegaciÃ³n"};
 		
 		do {
 			
 			String respuesta_departamento = (String) JOptionPane.showInputDialog(null, "Seleccione un departamento", "Departamento", JOptionPane.DEFAULT_OPTION, null, lista_departamentos, lista_departamentos[0]);
 			if(respuesta_departamento != null) {
-				int respuesta_imprimir_departamento = JOptionPane.showConfirmDialog(null, "¿Desea imrpimir los miembros de este departamento?");
+				int respuesta_imprimir_departamento = JOptionPane.showConfirmDialog(null, "Â¿Desea imrpimir los miembros de este departamento?");
 				if(respuesta_imprimir_departamento==0) {
 					// Funcion imprimir departamento--->Imprime nombre del departamento, listado de sus miembros agrupados por su cargo y los requisitos dichos cargos ocupados;
 				}
@@ -34,20 +34,20 @@ public class Interfaz {
 								String respuesta_miembro = (String) JOptionPane.showInputDialog(null, "Seleccione un miembro", "Miembros", JOptionPane.DEFAULT_OPTION, null, lista_vacia, lista_vacia[0]);
 							}
 								
-							int respuesta_imprimir_miembro = JOptionPane.showConfirmDialog(null, "¿Desea imrpimir los datos de este miembro?");
+							int respuesta_imprimir_miembro = JOptionPane.showConfirmDialog(null, "Â¿Desea imrpimir los datos de este miembro?");
 							
 							if(respuesta_imprimir_miembro == 0) {
 								// Funcion imprimir datos de un miembro;
 							}
 							else if(respuesta_imprimir_miembro == 1) {
-								respuesta_salida2 = JOptionPane.showConfirmDialog(null, "¿Desea seleccionar otro miembro?");
+								respuesta_salida2 = JOptionPane.showConfirmDialog(null, "Â¿Desea seleccionar otro miembro?");
 							}
 						
 					}while(respuesta_salida2==0);
 				}
 			}
 			
-		 respuesta_salida = JOptionPane.showConfirmDialog(null, "¿Desea salir del programa?");
+		 respuesta_salida = JOptionPane.showConfirmDialog(null, "Â¿Desea salir del programa?");
 			
 		}while(respuesta_salida==2 || respuesta_salida==1);
 	}

@@ -2,6 +2,7 @@ public class GrupoMiembros
 {
     private String funcion;
     private int cantidadMiembros, nPercel, idCargo, maxMiembros;
+    private Miembro dep[];
     
     GrupoMiembros(String funcion, int idCargo, int maxMiembros){
         this.funcion = funcion;
@@ -9,6 +10,8 @@ public class GrupoMiembros
         this.nPercel = 0;
         this.idCargo = idCargo;
         this.maxMiembros = maxMiembros;
+        this.dep = new Miembro[maxMiembros];
+        
     }
     
     public int getCargoId(){
@@ -28,10 +31,20 @@ public class GrupoMiembros
                     throw new TooManyPercelEx();
                 }
             }
+            this.dep[this.cantidadMiembros] = aniadido;
             this.cantidadMiembros++;
+            
             aniadido.getCargo().setInfo(this.funcion);
             return true;
         }
         return false;
+    }
+    
+    public Miembro getMiembro(int id){ // precondicion el miembro existe
+        return this.dep[id];
+    }
+    
+    public int getCantidadMiembros(){
+        return this.cantidadMiembros;
     }
 }
